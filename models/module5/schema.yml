@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+- name: raw
+  tables:
+  - name: il_order
+    external:
+      location: "@raw.my_s3/module_5/incremental_loads"
+      file_format: "raw.module5_csv"
+      infer_schema: true
