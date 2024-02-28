@@ -1,7 +1,7 @@
 {{
     config(
         materialized='table',
-        pre_hook=before_begin("alter external table il_order refresh")
+        pre_hook=before_begin("alter table il_order refresh")
     )
 }}
 
