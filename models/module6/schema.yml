@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+    - name: dbt_orders1
+      external:
+        location: "@raw.my_s3/module_6"
+        file_format: "raw.module6_csv"
+        infer_schema: true
+        
+    - name: dbt_orders1_1
+      external:
+        location: "@raw.my_s3/module_6"
+        file_format: "raw.module6_csv_period"
+        infer_schema: true
