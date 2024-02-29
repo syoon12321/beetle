@@ -1,0 +1,23 @@
+version: 2
+
+seeds:
+  - name: clerks
+    config:
+      quote_columns: true
+      delimiter: ','
+  - name: customers
+    config:
+      quote_columns: true
+      delimiter: ','
+  - name: nations
+    config:
+      quote_columns: true
+      delimiter: ','
+  - name: priority
+    config:
+      quote_columns: true
+      delimiter: ','
+  - name: regions
+    config:
+      quote_columns: true
+      delimiter: ','
