@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+    - name: dbt_bc_orders
+      external:
+        location: "@raw.my_s3/module6_bc"
+        file_format: "raw.module6_csv"
+        infer_schema: true
