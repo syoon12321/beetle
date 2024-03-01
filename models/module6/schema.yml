@@ -14,3 +14,15 @@ sources:
         location: "@raw.my_s3/module_6"
         file_format: "raw.module6_csv_period"
         infer_schema: true
+
+    - name: dbt_orders2
+      external:
+        location: "@raw.my_s3/module_6/order2"
+        file_format: "raw.module6_csv"
+        infer_schema: true
+
+    - name: dbt_orders2_1
+      external:
+        location: "@raw.my_s3/module_6/order2"
+        file_format: "raw.module6_csv"
+        infer_schema: true
