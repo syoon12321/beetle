@@ -1,0 +1,17 @@
+version: 2
+
+seeds:
+  - name: countries
+    config:
+      quote_columns: true
+      delimiter: ','
+      column_types:
+        country_name: varchar(100)
+        alternate_country_name: varchar(100)
+        alpha_2_code: varchar(2)
+        alpha_3_code: varchar(3)
+        capital_city: varchar(100)
+  - name: ports
+    config:
+      quote_columns: true
+      delimiter: ','
