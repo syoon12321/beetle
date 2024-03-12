@@ -1,3 +1,11 @@
+{{
+    config(
+        materialized='table',
+        pre_hook=before_begin("alter table {{ source('raw', 'dbt_bc_orders') }} refresh")
+
+    )
+}}
+
 with 
 
 source as (

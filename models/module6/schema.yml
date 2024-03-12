@@ -8,3 +8,9 @@ sources:
         location: "@raw.my_s3/module6_bc"
         file_format: "raw.module6_csv"
         infer_schema: true
+
+    - name: dbt_bc_lineitem
+      external:
+        location: "@raw.my_s3/module6_bc/lineitem"
+        file_format: "raw.module6_csv"
+        infer_schema: true
