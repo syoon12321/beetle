@@ -16,3 +16,5 @@ sources:
       tables:
         - name: contact
           description: contact data from mmdw
+        - name: countries
+          description: country data from mmdw with country id, name, capital city
