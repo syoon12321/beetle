@@ -43,8 +43,12 @@ mmdw_contact_source as (
     from {{ ref('mmdw_contact_snapshot') }}
 ),
 
-mmdw_countries as (
+mmdw_countries_source as (
     select * from {{ ref('mmdw_countries_snapshot') }}
+),
+
+countries_seed as (
+    select * from {{ ref('countries') }}
 ),
 
 --Logical
@@ -99,7 +103,7 @@ mmdw_contacts as (
         city,
         state,
         postal_code,
-        mmdw_countries.country_id as country_key, --FIX!
+        mmdw_countries_source.country_id as country_key, --FIX!
         'MMDW.contact' as record_source_system,
         contact_id as record_source_system_id,
         --Plumbing columns
@@ -108,7 +112,8 @@ mmdw_contacts as (
         coalesce(mmdw_contact_source.dbt_valid_to, '{{var('the_distant_future')}}') as record_eff_end_dttm,
         case when mmdw_contact_source.dbt_valid_to is null then 'Yes' else 'No' end as record_current_flg
     from mmdw_contact_source
-    join mmdw_countries on mmdw_contact_source.country_id = mmdw_countries.country_id
+    join mmdw_countries_source on mmdw_contact_source.country_id = mmdw_countries_source.country_id
+    join countries_seed on mmdw_countries_source.country_name=countries_seed.alternate_country_name
 ),
 
 -- Final
