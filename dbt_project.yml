@@ -37,11 +37,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   timeless_shipping_capstone:
+    +schema: 'timeless_shipping'
+
     # Applies to all files under models/example/
-    example:
+    staging:
+      +materialized: view
+    marts:
       +materialized: table
 
 seeds:
   timeless_shipping_capstone:
     +schema: 'timeless_shipping'
 
+vars:
+  the_distant_future: '9999-12-31 11:59:59.00'
+
+on-run-start: "{{generate_sequences()}}"

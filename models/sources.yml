@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+    - name: tsdw
+      description: Timeless Shipping Data Warehouse
+      database: beetle_db
+      schema: bigquery_db_poseidon
+      tables:
+        - name: shipment
+          description: has shipment data from tsdw
+
+    - name: mmdw
+      description: Marshall Maritime Data Warehouse
+      database: beetle_db
+      schema: aurora_postgres_prod
+      tables:
+        - name: contact
+          description: contact data from mmdw
