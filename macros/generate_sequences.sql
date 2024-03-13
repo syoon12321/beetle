@@ -1,4 +1,5 @@
-# in macros/generate_sequences.sql
+-- https://docs.getdbt.com/blog/managing-surrogate-keys
+-- # in macros/generate_sequences.sql
 
 {% macro generate_sequences() %}
 
